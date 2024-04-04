@@ -3,12 +3,12 @@ import 'package:todo/data/firebase_repository.dart';
 import 'package:todo/models/task.dart';
 
 class TaskVm extends ChangeNotifier {
-  late FirebaseRepository _taskRepo;
+  late FirebaseRepository<Task> _taskRepo;
   List<Task> tasksToDo = [];
   List<Task> tasksCompleted = [];
 
   TaskVm() {
-    _taskRepo = FirebaseRepository(
+    _taskRepo = FirebaseRepository<Task>(
         collectionName: Task.collectionName, onData: _taskReceived);
   }
 
